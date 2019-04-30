@@ -8,3 +8,5 @@
 int helloTriangle();
 int shaders();
 int textures();
+int transformations();
+int coordinates();
