@@ -14,8 +14,9 @@ using namespace std;
 namespace mySpace
 {
   void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-  void processInput(GLFWwindow *window);
+  void processInput(GLFWwindow *window, ParticleEmitter &pm);
   void switchBetweenWireframe(GLFWwindow *window);
+  void restartParticleSystem(GLFWwindow *window, ParticleEmitter &pm);
 
   // settings
   const unsigned int SCR_WIDTH = 800;
@@ -26,14 +27,16 @@ namespace mySpace
 
   bool isFilling = true;
   bool keyPressed_c = false;
+  bool keyPressed_r = false;
 
   // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
   // ---------------------------------------------------------------------------------------------------------
-  void processInput(GLFWwindow *window)
+  void processInput(GLFWwindow *window, ParticleEmitter &pm)
   {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
       glfwSetWindowShouldClose(window, true);
     switchBetweenWireframe(window);
+    restartParticleSystem(window, pm);
   }
 
   void switchBetweenWireframe(GLFWwindow *window)
@@ -55,6 +58,20 @@ namespace mySpace
     else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_RELEASE)
     {
       keyPressed_c = false;
+    }
+  }
+
+  void restartParticleSystem(GLFWwindow *window, ParticleEmitter &pm)
+  {
+    if (!keyPressed_r && glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+    {
+      keyPressed_r = true;
+      pm.Stop();
+      pm.Start();
+    }
+    else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_RELEASE)
+    {
+      keyPressed_r = false;
     }
   }
 
@@ -113,9 +130,50 @@ int main()
   //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
+  
+
 
   ParticleEmitter pm(500, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
   pm.ConfigureShader(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
+  glm::vec3 pmOrigin(0.0f, 0.0f, -20.0f);  
+  GLfloat pmSphereRadius = 2.0f;
+  GLfloat pmParticleSpawnRate = 50;
+  GLboolean pmEmitOverTime = false;
+
+  glm::vec3 pmStartSize(0.5f);
+  glm::vec3 pmStartColor(1.0f, 0.0f, 0.0f);
+  GLfloat pmStartLifetime = 5.0f;
+  GLfloat pmStartSpeed = 20.0f;
+
+  glm::vec3 pmGravity(0.0f, -9.8f, 0.0f);
+  
+  pm.SetEmitterVariables(
+    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime,
+    pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
+    pmGravity);
+  pm.Start();
+
+
+  ParticleEmitter pm2(500, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
+  pm2.ConfigureShader(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
+  pmOrigin = glm::vec3(0.0f, 0.0f, -20.0f);
+  pmSphereRadius = 1.0f;
+  pmParticleSpawnRate = 30;
+  pmEmitOverTime = true;
+
+  pmStartSize = glm::vec3(0.1f);
+  pmStartColor = glm::vec3(0.529f, 0.808f, 0.922f);
+  pmStartLifetime = 5.0f;
+  pmStartSpeed = 10.0f;
+
+  pmGravity = glm::vec3(0.0f, -98.0f, 0.0f);
+
+  pm2.SetEmitterVariables(
+    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime,
+    pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
+    pmGravity);
+  pm2.Start();
+
 
   GLfloat deltaTime;
   GLfloat lastFrame = 0;
@@ -133,7 +191,7 @@ int main()
 
     // input
     // -----
-    mySpace::processInput(window);
+    mySpace::processInput(window, pm);
 
     // render
     // ------
@@ -142,9 +200,11 @@ int main()
 
 
     // Updating our particles
-    pm.Update(deltaTime, 2);
+    pm.Update(deltaTime);
+    pm2.Update(deltaTime);
     // Drawing our particles
     pm.Draw();
+    pm2.Draw();
 
 
     // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)

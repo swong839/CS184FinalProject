@@ -2,16 +2,23 @@
 
 ParticleEmitter::ParticleEmitter(const GLuint nr_particles, const std::string vertexPath, const std::string fragmentPath)
 {
-  SetupQuad();  
+  isPlaying = false;
 
-  shader = new Shader(vertexPath, fragmentPath);
-  SetupTexture();
 
+  // Emitter object variables
+  timeToNextParticle = 0;
+
+
+  // Particle variables
   this->nr_particles = nr_particles;
   for (GLuint i = 0; i < nr_particles; i++)
     particles.push_back(Particle());
 
-  lastUsedParticle = 0;
+  // Shader variables
+  SetupQuad();
+
+  shader = new Shader(vertexPath, fragmentPath);
+  SetupTexture();
 }
 
 ParticleEmitter::~ParticleEmitter()
@@ -91,23 +98,62 @@ void ParticleEmitter::ConfigureShader(float width, float height)
   glm::mat4 view = glm::mat4(1.0f);
   // note that we're translating the scene in the reverse direction of where we want to move
   view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-  int viewLoc = glGetUniformLocation(shader->ID, "view");
-  glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+  shader->setMat4("view", view);
   // Tranform from camera space to project space - essentially make sure the 3D scene LOOKS 3D
   glm::mat4 projection;
   projection = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 100.0f);
-  int projectionLoc = glGetUniformLocation(shader->ID, "projection");
-  glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+  shader->setMat4("projection", projection);
 }
 
-void ParticleEmitter::Update(const GLfloat deltaTime, const GLuint nr_new_particles)
+void ParticleEmitter::Start()
 {
-  // Add new particles
-  for (GLuint i = 0; i < nr_new_particles; i++)
+  lastUsedParticle = 0;
+
+  if (!emitOverTime)
   {
-    GLuint unusedParticle = FirstUnusedParticle();
-    RespawnParticle(particles[unusedParticle], glm::vec2(0.0f), glm::vec2(0.0f), glm::vec2(0.0f));
+    for (GLuint i = 0; i < particleSpawnRate; i++)
+    {
+      GLuint unusedParticle = FirstUnusedParticle();
+      if (unusedParticle != -1)
+        RespawnParticle(particles[unusedParticle]);
+      else
+        std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
+    }
   }
+
+  isPlaying = true;
+}
+
+void ParticleEmitter::Stop()
+{
+  isPlaying = false;
+
+  for (Particle particle : particles)
+    particle.Life = 0;
+}
+
+void ParticleEmitter::Update(const GLfloat deltaTime)
+{
+  if (!isPlaying)
+    return;
+
+  // Add new particles
+  if (emitOverTime)
+  {
+    if (timeToNextParticle <= 0)
+    {
+      GLuint unusedParticle = FirstUnusedParticle();
+      if (unusedParticle != -1)
+        RespawnParticle(particles[unusedParticle]);
+      else
+        std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
+
+      timeToNextParticle = 1.0f / particleSpawnRate;
+    }
+    else
+      timeToNextParticle -= deltaTime;
+  }
+
   // Update all particles
   for (GLuint i = 0; i < nr_particles; i++)
   {
@@ -115,25 +161,32 @@ void ParticleEmitter::Update(const GLfloat deltaTime, const GLuint nr_new_partic
     p.Life -= deltaTime;
     if (p.Life > 0.0f)
     {
-      p.Position -= p.Velocity * deltaTime;
-      p.Color -= deltaTime * 2.5f;
+      p.Velocity += gravity * deltaTime;
+      p.Position += p.Velocity * deltaTime;
+
+      p.Size -= deltaTime * 0.05f;
+      p.Color.a -= deltaTime;
     }
   }
 }
 
 void ParticleEmitter::Draw() const
 {
+  if (!isPlaying)
+    return;
+
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-  shader->use();
-  glm::mat4 model = glm::mat4(1.0f);
-  model = glm::scale(model, glm::vec3(0.1f));
-  shader->setMat4("model", model);
 
   for (Particle particle : particles)
   {
+    shader->use();
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::scale(model, particle.Size);
+    shader->setMat4("model", model);
+
     if (particle.Life > 0.0f)
     {
-      shader->setVec2("offset", particle.Position);
+      shader->setVec3("offset", particle.Position);
       shader->setVec4("color", particle.Color);
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, texture);
@@ -170,15 +223,36 @@ GLuint ParticleEmitter::FirstUnusedParticle()
   }
   // Override first particle if all others are alive
   lastUsedParticle = 0;
-  return 0;
+  return -1;
 }
 
-void ParticleEmitter::RespawnParticle(Particle &particle, glm::vec2 initialPos, glm::vec2 offset, glm::vec2 initialVelocity)
+void ParticleEmitter::RespawnParticle(Particle &particle)
 {
-  GLfloat random = ((rand() % 100) - 50) / 10.0f;
-  GLfloat rColor = 0.5 + ((rand() % 100) / 100.0f);
-  particle.Position = initialPos + random + offset;
-  particle.Color = glm::vec4(rColor, rColor, rColor, 1.0f);
-  particle.Life = 1.0f;
-  particle.Velocity = initialVelocity * 0.1f;
+  glm::vec3 dir = randomVec3(glm::vec3(-1.0f), glm::vec3(1.0f));
+  dir *= (1.0f / dir.length());
+  particle.Position = origin + dir * sphereRadius;
+  particle.Size = startSize;
+  particle.Color = glm::vec4(startColor, 1.0f);
+  particle.Life = startLifetime;
+  particle.Velocity = startSpeed * dir;
+}
+
+
+
+void ParticleEmitter::SetEmitterVariables(
+  const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime,
+  const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
+  const glm::vec3 &gravity)
+{
+  this->origin = origin;
+  this->sphereRadius = sphereRadius;
+  this->particleSpawnRate = particleSpawnRate;
+  this->emitOverTime = emitOverTime;
+
+  this->startSize = startSize;
+  this->startColor = startColor;
+  this->startLifetime = startLifetime;
+  this->startSpeed = startSpeed;
+  
+  this->gravity = gravity;
 }

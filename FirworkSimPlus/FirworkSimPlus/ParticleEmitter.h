@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 
 #include <string>
 #include <vector>
@@ -9,28 +10,59 @@
 
 #include "Particle.h"
 #include "Shader.h"
+#include "Utility.h"
 
 class ParticleEmitter
 {
 public:
   ParticleEmitter(const GLuint nr_particles, const std::string vertexPath, const std::string fragmentPath);
   ~ParticleEmitter();
-  void ConfigureShader(float width, float height);
-  void Update(const GLfloat deltaTime, const GLuint nr_new_particles);
+  void ConfigureShader(const float width, const float height);
+  void Start();
+  void Stop();
+  void Update(const GLfloat deltaTime);
   void Draw() const;
+
+  void SetEmitterVariables(
+    const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime,
+    const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
+    const glm::vec3 &gravity);
 
 private:
   void SetupQuad();
   void SetupTexture();
 
   GLuint FirstUnusedParticle();
-  void RespawnParticle(Particle &particle, glm::vec2 initialPos, glm::vec2 offset, glm::vec2 initialVelocity);
+  void RespawnParticle(Particle &particle);
 
 private:
+  // Emitter object variables
+  //-------------------------
+  glm::vec3 origin;
+  GLfloat sphereRadius;
+  GLfloat particleSpawnRate;
+  GLfloat timeToNextParticle;
+  GLboolean emitOverTime;
+
+  // Starting settings for particles
+  glm::vec3 startSize;
+  glm::vec3 startColor;
+  GLfloat startLifetime;
+  GLfloat startSpeed;
+  
+  // Settings for lifetime of particles
+  glm::vec3 gravity;
+
+
+  bool isPlaying;
+
+  // Particle variables
+  //-------------------
   GLuint lastUsedParticle;
   GLuint nr_particles;
   std::vector<Particle> particles;
 
+  // OpenGL variables
   unsigned int VAO, VBO, EBO;
   unsigned int texture;
   Shader *shader;
