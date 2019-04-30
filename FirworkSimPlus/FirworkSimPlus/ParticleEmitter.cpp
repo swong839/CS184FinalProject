@@ -109,6 +109,9 @@ void ParticleEmitter::Start()
 {
   lastUsedParticle = 0;
 
+  emitterDuration = 0;
+
+
   if (!emitOverTime)
   {
     for (GLuint i = 0; i < particleSpawnRate; i++)
@@ -128,7 +131,7 @@ void ParticleEmitter::Stop()
 {
   isPlaying = false;
 
-  for (Particle particle : particles)
+  for (Particle &particle : particles)
     particle.Life = 0;
 }
 
@@ -137,6 +140,8 @@ void ParticleEmitter::Update(const GLfloat deltaTime)
   if (!isPlaying)
     return;
 
+  emitterDuration += 3 * deltaTime;
+
   // Add new particles
   if (emitOverTime)
   {
@@ -144,9 +149,19 @@ void ParticleEmitter::Update(const GLfloat deltaTime)
     {
       GLuint unusedParticle = FirstUnusedParticle();
       if (unusedParticle != -1)
-        RespawnParticle(particles[unusedParticle]);
+        RespawnParticle(particles[unusedParticle], emitterDuration);
       else
         std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
+
+      if (isSpinningTrail)
+      {
+        GLuint unusedParticle = FirstUnusedParticle();
+        if (unusedParticle != -1)
+          RespawnParticle(particles[unusedParticle], emitterDuration + M_PI);
+        else
+          std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
+
+      }
 
       timeToNextParticle = 1.0f / particleSpawnRate;
     }
@@ -226,21 +241,28 @@ GLuint ParticleEmitter::FirstUnusedParticle()
   return -1;
 }
 
-void ParticleEmitter::RespawnParticle(Particle &particle)
+void ParticleEmitter::RespawnParticle(Particle &particle, const GLfloat angle)
 {
-  glm::vec3 dir = randomVec3(glm::vec3(-1.0f), glm::vec3(1.0f));
-  dir *= (1.0f / dir.length());
-  particle.Position = origin + dir * sphereRadius;
+  glm::vec3 dir;
+  if (isSpinningTrail)
+    dir = glm::vec3(cos(angle), 0.0f, sin(angle));
+  else
+  {
+    dir = randomVec3(glm::vec3(-1.0f), glm::vec3(1.0f));
+    dir *= (1.0f / dir.length());
+  }
+  particle.Position = origin + 4 * emitterDuration * glm::vec3(0.0f, 1.0f, 0.0f) + dir * sphereRadius;
+  particle.Velocity = startSpeed * dir;
+
   particle.Size = startSize;
   particle.Color = glm::vec4(startColor, 1.0f);
   particle.Life = startLifetime;
-  particle.Velocity = startSpeed * dir;
 }
 
 
 
 void ParticleEmitter::SetEmitterVariables(
-  const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime,
+  const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime, const GLboolean isSpinningTrail,
   const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
   const glm::vec3 &gravity)
 {
@@ -248,6 +270,7 @@ void ParticleEmitter::SetEmitterVariables(
   this->sphereRadius = sphereRadius;
   this->particleSpawnRate = particleSpawnRate;
   this->emitOverTime = emitOverTime;
+  this->isSpinningTrail = isSpinningTrail;
 
   this->startSize = startSize;
   this->startColor = startColor;

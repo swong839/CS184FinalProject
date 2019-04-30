@@ -5,6 +5,8 @@
 
 #include <string>
 #include <vector>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 #include "stb_image.h"
 
@@ -24,7 +26,7 @@ public:
   void Draw() const;
 
   void SetEmitterVariables(
-    const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime,
+    const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime, const GLboolean isSpinningTrail,
     const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
     const glm::vec3 &gravity);
 
@@ -33,16 +35,19 @@ private:
   void SetupTexture();
 
   GLuint FirstUnusedParticle();
-  void RespawnParticle(Particle &particle);
+  void RespawnParticle(Particle &particle, const GLfloat angle = 0);
 
 private:
   // Emitter object variables
   //-------------------------
+  GLfloat emitterDuration;
+
   glm::vec3 origin;
   GLfloat sphereRadius;
   GLfloat particleSpawnRate;
   GLfloat timeToNextParticle;
   GLboolean emitOverTime;
+  GLboolean isSpinningTrail;
 
   // Starting settings for particles
   glm::vec3 startSize;

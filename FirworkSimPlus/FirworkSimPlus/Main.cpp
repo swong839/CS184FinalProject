@@ -14,9 +14,9 @@ using namespace std;
 namespace mySpace
 {
   void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-  void processInput(GLFWwindow *window, ParticleEmitter &pm);
+  void processInput(GLFWwindow *window, vector<ParticleEmitter *> &PEs);
   void switchBetweenWireframe(GLFWwindow *window);
-  void restartParticleSystem(GLFWwindow *window, ParticleEmitter &pm);
+  void restartParticleSystem(GLFWwindow *window, vector<ParticleEmitter *> &PEs);
 
   // settings
   const unsigned int SCR_WIDTH = 800;
@@ -31,12 +31,12 @@ namespace mySpace
 
   // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
   // ---------------------------------------------------------------------------------------------------------
-  void processInput(GLFWwindow *window, ParticleEmitter &pm)
+  void processInput(GLFWwindow *window, vector<ParticleEmitter *> &PEs)
   {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
       glfwSetWindowShouldClose(window, true);
     switchBetweenWireframe(window);
-    restartParticleSystem(window, pm);
+    restartParticleSystem(window, PEs);
   }
 
   void switchBetweenWireframe(GLFWwindow *window)
@@ -61,13 +61,17 @@ namespace mySpace
     }
   }
 
-  void restartParticleSystem(GLFWwindow *window, ParticleEmitter &pm)
+  void restartParticleSystem(GLFWwindow *window, vector<ParticleEmitter *> &PEs)
   {
     if (!keyPressed_r && glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
     {
       keyPressed_r = true;
-      pm.Stop();
-      pm.Start();
+      
+      for (ParticleEmitter *PE : PEs)
+      {
+        PE->Stop();
+        PE->Start();
+      }
     }
     else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_RELEASE)
     {
@@ -131,7 +135,7 @@ int main()
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
   
-
+  vector<ParticleEmitter *> PEs;
 
   ParticleEmitter pm(500, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
   pm.ConfigureShader(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
@@ -139,6 +143,7 @@ int main()
   GLfloat pmSphereRadius = 2.0f;
   GLfloat pmParticleSpawnRate = 50;
   GLboolean pmEmitOverTime = false;
+  GLboolean pmIsSpinningTrail = false;
 
   glm::vec3 pmStartSize(0.5f);
   glm::vec3 pmStartColor(1.0f, 0.0f, 0.0f);
@@ -148,18 +153,19 @@ int main()
   glm::vec3 pmGravity(0.0f, -9.8f, 0.0f);
   
   pm.SetEmitterVariables(
-    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime,
+    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
     pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
     pmGravity);
-  pm.Start();
+  PEs.push_back(&pm);
+  
 
-
-  ParticleEmitter pm2(500, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
+  ParticleEmitter pm2(1000, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
   pm2.ConfigureShader(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
-  pmOrigin = glm::vec3(0.0f, 0.0f, -20.0f);
-  pmSphereRadius = 1.0f;
-  pmParticleSpawnRate = 30;
+  pmOrigin = glm::vec3(0.0f, -20.0f, -5.0f);
+  pmSphereRadius = 0.5f;
+  pmParticleSpawnRate = 100;
   pmEmitOverTime = true;
+  pmIsSpinningTrail = true;
 
   pmStartSize = glm::vec3(0.1f);
   pmStartColor = glm::vec3(0.529f, 0.808f, 0.922f);
@@ -169,10 +175,14 @@ int main()
   pmGravity = glm::vec3(0.0f, -98.0f, 0.0f);
 
   pm2.SetEmitterVariables(
-    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime,
+    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
     pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
     pmGravity);
-  pm2.Start();
+  PEs.push_back(&pm2);
+
+  
+  for (ParticleEmitter *PE : PEs)
+    PE->Start();
 
 
   GLfloat deltaTime;
@@ -191,7 +201,7 @@ int main()
 
     // input
     // -----
-    mySpace::processInput(window, pm);
+    mySpace::processInput(window, PEs);
 
     // render
     // ------
@@ -199,12 +209,13 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-    // Updating our particles
-    pm.Update(deltaTime);
-    pm2.Update(deltaTime);
-    // Drawing our particles
-    pm.Draw();
-    pm2.Draw();
+    for (ParticleEmitter *PE : PEs)
+    {
+      // Updating our particles
+      PE->Update(deltaTime);
+      // Drawing our particles
+      PE->Draw();
+    }
 
 
     // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
