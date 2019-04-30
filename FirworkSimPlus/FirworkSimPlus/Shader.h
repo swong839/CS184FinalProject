@@ -31,6 +31,7 @@ public:
   void setVec2(const std::string &name, glm::vec2 value) const;
   void setVec4(const std::string &name, glm::vec4 value) const;
   void setMat4(const std::string &name, glm::mat4 value) const;
+  void setTexture(const std::string &name, unsigned int value) const;
 };
 
 #endif
