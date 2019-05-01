@@ -54,8 +54,8 @@ void ParticleEmitter::SetupQuad()
   glBindVertexArray(VAO);
   glBindBuffer(GL_ARRAY_BUFFER, VBO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STREAM_DRAW);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STREAM_DRAW);
   // position and texture attributes
   glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
   glEnableVertexAttribArray(0);
@@ -140,33 +140,36 @@ void ParticleEmitter::Update(const GLfloat deltaTime)
   if (!isPlaying)
     return;
 
-  emitterDuration += 3 * deltaTime;
+  emitterDuration += deltaTime;
 
   // Add new particles
-  if (emitOverTime)
+  if (emitterDuration < 1.0f)
   {
-    if (timeToNextParticle <= 0)
+    if (emitOverTime)
     {
-      GLuint unusedParticle = FirstUnusedParticle();
-      if (unusedParticle != -1)
-        RespawnParticle(particles[unusedParticle], emitterDuration);
-      else
-        std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
-
-      if (isSpinningTrail)
+      if (timeToNextParticle <= 0)
       {
         GLuint unusedParticle = FirstUnusedParticle();
         if (unusedParticle != -1)
-          RespawnParticle(particles[unusedParticle], emitterDuration + M_PI);
+          RespawnParticle(particles[unusedParticle], emitterDuration);
         else
           std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
 
-      }
+        if (isSpinningTrail)
+        {
+          GLuint unusedParticle = FirstUnusedParticle();
+          if (unusedParticle != -1)
+            RespawnParticle(particles[unusedParticle], emitterDuration + M_PI);
+          else
+            std::cout << "ERROR::PARTICLE_EMITTER::UPDATE" << std::endl << "Not caching enough particles" << std::endl;
 
-      timeToNextParticle = 1.0f / particleSpawnRate;
+        }
+
+        timeToNextParticle = 1.0f / particleSpawnRate;
+      }
+      else
+        timeToNextParticle -= deltaTime;
     }
-    else
-      timeToNextParticle -= deltaTime;
   }
 
   // Update all particles
@@ -179,7 +182,7 @@ void ParticleEmitter::Update(const GLfloat deltaTime)
       p.Velocity += gravity * deltaTime;
       p.Position += p.Velocity * deltaTime;
 
-      p.Size -= deltaTime * 0.05f;
+      //p.Size -= deltaTime * 0.05f;
       p.Color.a -= deltaTime;
     }
   }
@@ -190,18 +193,19 @@ void ParticleEmitter::Draw() const
   if (!isPlaying)
     return;
 
+  //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
   for (Particle particle : particles)
   {
     shader->use();
     glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, particle.Position);
     model = glm::scale(model, particle.Size);
     shader->setMat4("model", model);
 
     if (particle.Life > 0.0f)
     {
-      shader->setVec3("offset", particle.Position);
       shader->setVec4("color", particle.Color);
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, texture);
@@ -210,10 +214,6 @@ void ParticleEmitter::Draw() const
       glBindVertexArray(0);
     }
   }
-  //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-  glBindVertexArray(VAO);
-  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
 GLuint ParticleEmitter::FirstUnusedParticle()
@@ -251,7 +251,8 @@ void ParticleEmitter::RespawnParticle(Particle &particle, const GLfloat angle)
     dir = randomVec3(glm::vec3(-1.0f), glm::vec3(1.0f));
     dir *= (1.0f / dir.length());
   }
-  particle.Position = origin + 4 * emitterDuration * glm::vec3(0.0f, 1.0f, 0.0f) + dir * sphereRadius;
+  particle.Position = origin + dir * sphereRadius;
+  // particle.Position = origin + 4 * emitterDuration * glm::vec3(0.0f, 1.0f, 0.0f) + dir * sphereRadius;
   particle.Velocity = startSpeed * dir;
 
   particle.Size = startSize;
@@ -278,4 +279,9 @@ void ParticleEmitter::SetEmitterVariables(
   this->startSpeed = startSpeed;
   
   this->gravity = gravity;
+}
+
+void ParticleEmitter::SetOrigin(const glm::vec3 newOrigin)
+{
+  this->origin = newOrigin;
 }

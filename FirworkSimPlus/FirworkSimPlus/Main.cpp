@@ -7,6 +7,7 @@
 
 #include "Particle.h"
 #include "ParticleEmitter.h"
+#include "Firework.h"
 #include <vector>
 
 using namespace std;
@@ -14,9 +15,9 @@ using namespace std;
 namespace mySpace
 {
   void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-  void processInput(GLFWwindow *window, vector<ParticleEmitter *> &PEs);
+  void processInput(GLFWwindow *window, vector<Firework*> &f);
   void switchBetweenWireframe(GLFWwindow *window);
-  void restartParticleSystem(GLFWwindow *window, vector<ParticleEmitter *> &PEs);
+  void restartParticleSystem(GLFWwindow *window, vector<Firework*> &f);
 
   // settings
   const unsigned int SCR_WIDTH = 800;
@@ -31,12 +32,12 @@ namespace mySpace
 
   // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
   // ---------------------------------------------------------------------------------------------------------
-  void processInput(GLFWwindow *window, vector<ParticleEmitter *> &PEs)
+  void processInput(GLFWwindow *window, vector<Firework*> &f)
   {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
       glfwSetWindowShouldClose(window, true);
     switchBetweenWireframe(window);
-    restartParticleSystem(window, PEs);
+    restartParticleSystem(window, f);
   }
 
   void switchBetweenWireframe(GLFWwindow *window)
@@ -61,16 +62,21 @@ namespace mySpace
     }
   }
 
-  void restartParticleSystem(GLFWwindow *window, vector<ParticleEmitter *> &PEs)
+  void restartParticleSystem(GLFWwindow *window, vector<Firework*> &f)
   {
     if (!keyPressed_r && glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
     {
       keyPressed_r = true;
       
-      for (ParticleEmitter *PE : PEs)
+      glm::vec3 origin(0.0f);
+      glm::vec3 initialVelocity(0.0f);
+      for (Firework * firework : f)
       {
-        PE->Stop();
-        PE->Start();
+        origin = randomVec3(glm::vec3(-25.0f, -50.0f, -55.0f), glm::vec3(25.0f, -45.0f, -45.0f));
+        initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 55.0f, 10.0f));
+
+        firework->Stop();
+        firework->Start(origin, initialVelocity);
       }
     }
     else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_RELEASE)
@@ -87,6 +93,20 @@ namespace mySpace
     // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
   }
+}
+
+Firework * CreateFirework()
+{
+  std::string vsp = mySpace::vertexShaderPath;
+  std::string fsp = mySpace::fragmentShaderPath;
+  GLfloat gravity = -9.8f;
+  glm::vec3 windForces(0.0f);
+  ExplosionType et = DEFAULT_ET;
+  TrailType tt = DEFAULT_TT;
+  SmokeType st = DEFAULT_ST;
+  Firework *f = new Firework(gravity, windForces, et, vsp, fsp, tt, vsp, fsp, st, vsp, fsp);
+  f->ConfigureShaders(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
+  return f;
 }
 
 int main()
@@ -129,60 +149,24 @@ int main()
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   
 
-  glEnable(GL_DEPTH_TEST);
+  //glEnable(GL_DEPTH_TEST);
   glEnable(GL_BLEND);
-  //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-
   
-  vector<ParticleEmitter *> PEs;
-
-  ParticleEmitter pm(500, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
-  pm.ConfigureShader(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
-  glm::vec3 pmOrigin(0.0f, 0.0f, -20.0f);  
-  GLfloat pmSphereRadius = 2.0f;
-  GLfloat pmParticleSpawnRate = 50;
-  GLboolean pmEmitOverTime = false;
-  GLboolean pmIsSpinningTrail = false;
-
-  glm::vec3 pmStartSize(0.5f);
-  glm::vec3 pmStartColor(1.0f, 0.0f, 0.0f);
-  GLfloat pmStartLifetime = 5.0f;
-  GLfloat pmStartSpeed = 20.0f;
-
-  glm::vec3 pmGravity(0.0f, -9.8f, 0.0f);
   
-  pm.SetEmitterVariables(
-    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
-    pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
-    pmGravity);
-  PEs.push_back(&pm);
   
-
-  ParticleEmitter pm2(1000, mySpace::vertexShaderPath, mySpace::fragmentShaderPath);
-  pm2.ConfigureShader(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
-  pmOrigin = glm::vec3(0.0f, -20.0f, -5.0f);
-  pmSphereRadius = 0.5f;
-  pmParticleSpawnRate = 100;
-  pmEmitOverTime = true;
-  pmIsSpinningTrail = true;
-
-  pmStartSize = glm::vec3(0.1f);
-  pmStartColor = glm::vec3(0.529f, 0.808f, 0.922f);
-  pmStartLifetime = 5.0f;
-  pmStartSpeed = 10.0f;
-
-  pmGravity = glm::vec3(0.0f, -98.0f, 0.0f);
-
-  pm2.SetEmitterVariables(
-    pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
-    pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
-    pmGravity);
-  PEs.push_back(&pm2);
-
   
-  for (ParticleEmitter *PE : PEs)
-    PE->Start();
+  GLuint numFireworks = 2;
+  vector<Firework *> fireworks;
+  for (size_t i = 0; i < numFireworks; i++)
+    fireworks.push_back(CreateFirework());
+  glm::vec3 origin(0.0f);
+  glm::vec3 initialVelocity(0.0f);
+  for (Firework *f : fireworks)
+  {
+    origin = randomVec3(glm::vec3(-25.0f, -50.0f, -55.0f), glm::vec3(25.0f, -45.0f, -45.0f));
+    initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 55.0f, 10.0f));
+    f->Start(origin, initialVelocity);
+  }
 
 
   GLfloat deltaTime;
@@ -201,20 +185,17 @@ int main()
 
     // input
     // -----
-    mySpace::processInput(window, PEs);
+    mySpace::processInput(window, fireworks);
 
     // render
     // ------
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
-    for (ParticleEmitter *PE : PEs)
+    for (Firework *f : fireworks)
     {
-      // Updating our particles
-      PE->Update(deltaTime);
-      // Drawing our particles
-      PE->Draw();
+      f->Update(deltaTime);
+      f->Draw();
     }
 
 
@@ -223,6 +204,11 @@ int main()
     glfwSwapBuffers(window);
     glfwPollEvents();
   }
+
+  for (Firework *f : fireworks)
+    delete f;
+  fireworks.clear();
+
 
   // glfw: terminate, clearing all previously allocated GLFW resources.
   // ------------------------------------------------------------------

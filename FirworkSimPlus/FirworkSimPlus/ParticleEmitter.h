@@ -30,6 +30,8 @@ public:
     const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
     const glm::vec3 &gravity);
 
+  void SetOrigin(const glm::vec3 newOrigin);
+
 private:
   void SetupQuad();
   void SetupTexture();
