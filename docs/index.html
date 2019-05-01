@@ -9,18 +9,57 @@
       padding-left: 100px;  
     }  
   </style> 
-<title>CS 184 Final Project Proposal</title>
+<title>CS 184 Final Project</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 <body>
 <br />
-<h1 align="middle">Spring 2019 CS 184 Final Project Proposal: Fireworks Simulator</h1>
+<h1 align="middle">Spring 2019 CS 184 Final Project: Fireworks Simulator</h1>
     <h3 align="middle">Tom Bar Ezer Ayalon</h3>
     <h3 align="middle">Wesley Pickering</h3>
     <h3 align="middle">Sabrina Wong</h3>
 
-    <div class="padded">
+    <h2 align="middle"><b><u>Milestone</u></b></h2>
+        <div class="padded">
+
+    <p>At the milestone, we have gotten to a comfortable place with our progress. We have done many tutorial on OpenGL from learnopengl.com and opengl-tutorial.com and have gotten comfortable with OpenGL. We have managed to produce particles that resemble fireworks. For the inital work on the firework, we divided it into two sections: the initial shooting of the firework and the explosion. The program so far shows both sections of the firework. So far the program is run using OpenGL, glad, glfw, glm and khr and is run directly from Windows Visual Studios.</p>
+
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                <img src="milestoneLaunch.PNG" width="480px" />
+                <figcaption align="middle">Fireworks launching effects</figcaption>
+            </tr>
+        </table>
+        <br>
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                <img src="milestoneFirework.PNG" width="480px" />
+                <figcaption align="middle">Fireworks explosion</figcaption>
+            </tr>
+        </table>
+    </div>
+
+    <p>Learning OpenGL included installing and learning the basics of how OpenGL works more than at the high level. The tutorials covered part of the course that were provided to us by the skeleton code. It gave a more indepth view into the inner workings of graphical programs that weren't covered before in previous projects. It was interesting to start from the ground up and get a deeper understanding of how OpenGL works.</p>
+
+    <p>Since the goal of the fireworks simulator is to also allow the user to adjust the resulting explosion, the next steps will be to continue research into what variables would help to create the most realistic reaction. This will restrict the user's parameters to only fireworks that are within a reasonable chemical and physical threshold</p>
+
+    <p>Based on our current progress, our original schedule stays the same. The next steps will be to set up the code to make it more modularizable so that they can be modified. We will continue to look into fireworks and the chemical make up that is required. In addition, we will look into creating user UI with OpenGL so that they are able to change the values to modify the fireworks</p>
+
+    <div align="center">
+        <p>Below is a video of our particle systems in action</p>
+        <video width="320" height="240" controls>
+            <source src="milestoneVideo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <h2 align="middle"><b><u>Proposal</u></b></h2>
+
+
         <p>This will be an interactable game made in OpenGL that will focus on simulating fireworks. A user will be able to modify parameters to affect how fireworks' explosions look, ranging from the color to brightness to visibility. This will be done by implementing custom particles and particle effects system using OpenGL.</p>
 
     <h2 align="middle">Problem Description</h2>
