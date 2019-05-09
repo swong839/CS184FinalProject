@@ -35,15 +35,18 @@ void ParticleEmitter::SetupQuad()
   float vertices[] =
   {
     // positions    // texture coords
-    0.5f,  0.5f,    1.0f, 1.0f,   // top right
-    0.5f, -0.5f,    1.0f, 0.0f,   // bottom right
-   -0.5f, -0.5f,    0.0f, 0.0f,   // bottom left
-   -0.5f,  0.5f,    0.0f, 1.0f    // top left 
+     0.0f,   0.0f,     0.5f,  0.5f,   // center
+     0.5f,   0.5f,     1.0f,  1.0f,   // top right
+     0.5f,  -0.5f,     1.0f,  0.0f,   // bottom right
+    -0.5f,  -0.5f,     0.0f,  0.0f,   // bottom left
+    -0.5f,   0.5f,     0.0f,  1.0f    // top left 
   };
   unsigned int indices[] =
   {
-    0, 1, 3,
-    1, 2, 3
+    0, 1, 2,
+    0, 2, 3,
+    0, 3, 4,
+    0, 4, 1
   };
 
   glGenVertexArrays(1, &VAO);
@@ -101,7 +104,7 @@ void ParticleEmitter::ConfigureShader(float width, float height)
   shader->setMat4("view", view);
   // Tranform from camera space to project space - essentially make sure the 3D scene LOOKS 3D
   glm::mat4 projection;
-  projection = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 100.0f);
+  projection = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 200.0f);
   shader->setMat4("projection", projection);
 }
 
@@ -143,7 +146,7 @@ void ParticleEmitter::Update(const GLfloat deltaTime)
   emitterDuration += deltaTime;
 
   // Add new particles
-  if (emitterDuration < 1.0f)
+  if (emitterDuration < 1.4f)
   {
     if (emitOverTime)
     {
@@ -183,7 +186,7 @@ void ParticleEmitter::Update(const GLfloat deltaTime)
       p.Position += p.Velocity * deltaTime;
 
       //p.Size -= deltaTime * 0.05f;
-      p.Color.a -= deltaTime;
+      //p.Color.a -= deltaTime;
     }
   }
 }
@@ -198,21 +201,32 @@ void ParticleEmitter::Draw() const
 
   for (Particle particle : particles)
   {
+    if (particle.Life <= 0)
+      continue;
+
     shader->use();
     glm::mat4 model = glm::mat4(1.0f);
     model = glm::translate(model, particle.Position);
-    model = glm::scale(model, particle.Size);
-    shader->setMat4("model", model);
 
-    if (particle.Life > 0.0f)
+    shader->setVec4("color", particle.Color);
+    GLfloat val = quadFunc(particle.Life, -1, -1.5f, 2);
+    if (val > 1.5f)
     {
-      shader->setVec4("color", particle.Color);
-      glActiveTexture(GL_TEXTURE0);
-      glBindTexture(GL_TEXTURE_2D, texture);
-      glBindVertexArray(VAO);
-      glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-      glBindVertexArray(0);
+      model = glm::scale(model, particle.Size);
+      shader->setMat4("model", model);
+      shader->setFloat("mixAmount", val);
     }
+    else
+    {
+      model = glm::scale(model, 0.8f * particle.Size);
+      shader->setMat4("model", model);
+      shader->setFloat("mixAmount", 0.5f);
+    }
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
   }
 }
 
@@ -248,8 +262,10 @@ void ParticleEmitter::RespawnParticle(Particle &particle, const GLfloat angle)
     dir = glm::vec3(cos(angle), 0.0f, sin(angle));
   else
   {
-    dir = randomVec3(glm::vec3(-1.0f), glm::vec3(1.0f));
-    dir *= (1.0f / dir.length());
+    do
+    {
+      dir = randomVec3(glm::vec3(-1.0f), glm::vec3(1.0f));
+    } while (glm::length(dir) > 1);
   }
   particle.Position = origin + dir * sphereRadius;
   // particle.Position = origin + 4 * emitterDuration * glm::vec3(0.0f, 1.0f, 0.0f) + dir * sphereRadius;
@@ -257,7 +273,7 @@ void ParticleEmitter::RespawnParticle(Particle &particle, const GLfloat angle)
 
   particle.Size = startSize;
   particle.Color = glm::vec4(startColor, 1.0f);
-  particle.Life = startLifetime;
+  particle.Life = randomFloat(1.3f, 1.7f);//tartLifetime;
 }
 
 

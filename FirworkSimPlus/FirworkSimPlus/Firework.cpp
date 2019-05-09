@@ -62,19 +62,19 @@ Firework::~Firework()
 
 void Firework::CreateDefaultExplosion(const std::string vertexShaderPath, const std::string fragmentShaderPath)
 {
-  explosion = new ParticleEmitter(50, vertexShaderPath, fragmentShaderPath);
+  explosion = new ParticleEmitter(200, vertexShaderPath, fragmentShaderPath);
   glm::vec3 pmOrigin(0.0f);
   GLfloat pmSphereRadius = 2.0f;
-  GLfloat pmParticleSpawnRate = 50;
+  GLfloat pmParticleSpawnRate = 200;
   GLboolean pmEmitOverTime = false;
   GLboolean pmIsSpinningTrail = false;
 
-  glm::vec3 pmStartSize(1.0f);
-  glm::vec3 pmStartColor(1.0f, 0.0f, 0.0f);
-  GLfloat pmStartLifetime = 2.0f;
-  GLfloat pmStartSpeed = 20.0f;
+  glm::vec3 pmStartSize(2.0f);
+  glm::vec3 pmStartColor(1, 0, 0);
+  GLfloat pmStartLifetime = 5;
+  GLfloat pmStartSpeed = 25.0f;
 
-  glm::vec3 pmGravity(0.0f, -9.8f, 0.0f);
+  glm::vec3 pmGravity = externalForces;
 
   explosion->SetEmitterVariables(
     pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
@@ -92,11 +92,11 @@ void Firework::CreateDefaultTrail(const std::string vertexShaderPath, const std:
   GLboolean pmIsSpinningTrail = false;
 
   glm::vec3 pmStartSize = glm::vec3(1.5f);
-  glm::vec3 pmStartColor = glm::vec3(0.529f, 0.808f, 0.922f);
-  GLfloat pmStartLifetime = 1.0f;
+  glm::vec3 pmStartColor = glm::vec3(1.0f, 0.992f, 0.647f);
+  GLfloat pmStartLifetime = 0.3f;
   GLfloat pmStartSpeed = 0.0f;
 
-  glm::vec3 pmGravity = glm::vec3(0.0f, -9.8f, 0.0f);
+  glm::vec3 pmGravity = externalForces;
 
   trail->SetEmitterVariables(
     pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
@@ -145,7 +145,7 @@ void Firework::Update(const GLfloat deltaTime)
     trail->SetOrigin(mainBodyPos);
     trail->Update(deltaTime);
   }
-  if (!explosionStarted && duration > 1.1f)
+  if (!explosionStarted && duration > 1.5f)
   {
     if (explosion != nullptr)
     {

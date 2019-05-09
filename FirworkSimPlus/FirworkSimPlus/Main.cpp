@@ -20,8 +20,8 @@ namespace mySpace
   void restartParticleSystem(GLFWwindow *window, vector<Firework*> &f);
 
   // settings
-  const unsigned int SCR_WIDTH = 800;
-  const unsigned int SCR_HEIGHT = 600;
+  const unsigned int SCR_WIDTH = 1920;
+  const unsigned int SCR_HEIGHT = 1080;
 
   const string vertexShaderPath = "Shaders/Particle.vert";
   const string fragmentShaderPath = "Shaders/Particle.frag";
@@ -72,7 +72,7 @@ namespace mySpace
       glm::vec3 initialVelocity(0.0f);
       for (Firework * firework : f)
       {
-        origin = randomVec3(glm::vec3(-25.0f, -50.0f, -55.0f), glm::vec3(25.0f, -45.0f, -45.0f));
+        origin = randomVec3(glm::vec3(-25.0f, -50.0f, -180.0f), glm::vec3(25.0f, -45.0f, -170.0f));
         initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 55.0f, 10.0f));
 
         firework->Stop();
@@ -100,7 +100,7 @@ Firework * CreateFirework()
   std::string vsp = mySpace::vertexShaderPath;
   std::string fsp = mySpace::fragmentShaderPath;
   GLfloat gravity = -9.8f;
-  glm::vec3 windForces(0.0f);
+  glm::vec3 windForces(-10, 0, 0);
   ExplosionType et = DEFAULT_ET;
   TrailType tt = DEFAULT_TT;
   SmokeType st = DEFAULT_ST;
@@ -155,7 +155,7 @@ int main()
   
   
   
-  GLuint numFireworks = 2;
+  GLuint numFireworks = 1;
   vector<Firework *> fireworks;
   for (size_t i = 0; i < numFireworks; i++)
     fireworks.push_back(CreateFirework());
@@ -163,7 +163,7 @@ int main()
   glm::vec3 initialVelocity(0.0f);
   for (Firework *f : fireworks)
   {
-    origin = randomVec3(glm::vec3(-25.0f, -50.0f, -55.0f), glm::vec3(25.0f, -45.0f, -45.0f));
+    origin = randomVec3(glm::vec3(-25.0f, -50.0f, -180.0f), glm::vec3(25.0f, -45.0f, -170.0f));
     initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 55.0f, 10.0f));
     f->Start(origin, initialVelocity);
   }
@@ -189,7 +189,7 @@ int main()
 
     // render
     // ------
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     for (Firework *f : fireworks)

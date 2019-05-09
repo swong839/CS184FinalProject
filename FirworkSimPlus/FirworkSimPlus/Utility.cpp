@@ -46,3 +46,8 @@ glm::vec3 randomVec3(const glm::vec3 &min, const glm::vec3 &max)
     randomFloat(min.y, max.y),
     randomFloat(min.z, max.z));
 }
+
+GLfloat quadFunc(const GLfloat x, const GLfloat a, const GLfloat h, const GLfloat k)
+{
+  return a * (x + h) * (x + h) + k;
+}
