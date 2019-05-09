@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Firework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\ParticleEmitter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\ShadersTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\TexturesTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\TransformationsTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Textures\MyParticle.png">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Shaders\Particle.frag" />
+    <None Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Shaders\Particle.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{E5EC911C-F004-3AD0-A1CC-7DF83F36A9E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{078CC874-B4AA-39BC-A068-CC09F6F8A5DD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

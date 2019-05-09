@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8EEC4099-2925-33F9-A380-59675AF33CC3}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>nanogui-obj</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nanogui-obj.dir\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nanogui-obj.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nanogui-obj</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nanogui-obj.dir\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nanogui-obj.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nanogui-obj</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nanogui-obj.dir\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nanogui-obj.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nanogui-obj</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nanogui-obj.dir\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nanogui-obj.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nanogui-obj</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;NDEBUG;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;NDEBUG;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;NDEBUG;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;NDEBUG;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;NDEBUG;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NANOGUI_EIGEN_DONT_ALIGN;NDEBUG;_CRT_SECURE_NO_WARNINGS;NANOGUI_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD;_GLFW_BUILD_DLL;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;NANOGUI_GLAD;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\CMakeFiles\a5363913f8dbb32207eed6e223e1f06b\nanogui_resources.cpp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Running bin2c</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DOUTPUT_C=nanogui_resources.cpp -DOUTPUT_H=nanogui_resources.h -DINPUT_FILES=C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Bold.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Regular.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/entypo.ttf -P C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/bin2c.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/CMakeFiles/a5363913f8dbb32207eed6e223e1f06b/nanogui_resources.cpp.rule;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Bold.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Regular.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\entypo.ttf;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.cpp;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Running bin2c</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DOUTPUT_C=nanogui_resources.cpp -DOUTPUT_H=nanogui_resources.h -DINPUT_FILES=C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Bold.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Regular.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/entypo.ttf -P C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/bin2c.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/CMakeFiles/a5363913f8dbb32207eed6e223e1f06b/nanogui_resources.cpp.rule;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Bold.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Regular.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\entypo.ttf;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.cpp;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Running bin2c</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DOUTPUT_C=nanogui_resources.cpp -DOUTPUT_H=nanogui_resources.h -DINPUT_FILES=C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Bold.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Regular.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/entypo.ttf -P C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/bin2c.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/CMakeFiles/a5363913f8dbb32207eed6e223e1f06b/nanogui_resources.cpp.rule;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Bold.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Regular.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\entypo.ttf;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.cpp;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Running bin2c</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DOUTPUT_C=nanogui_resources.cpp -DOUTPUT_H=nanogui_resources.h -DINPUT_FILES=C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Bold.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/Roboto-Regular.ttf,C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/entypo.ttf -P C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/resources/bin2c.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/CMakeFiles/a5363913f8dbb32207eed6e223e1f06b/nanogui_resources.cpp.rule;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Bold.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\Roboto-Regular.ttf;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\resources\entypo.ttf;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.cpp;C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/ext/nanogui/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceRuns.cmake;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/ext/nanogui/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceRuns.cmake;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/ext/nanogui/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceRuns.cmake;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/ext/nanogui/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.13\Modules\CheckCXXSourceRuns.cmake;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src\nanovg.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4005;4456;4457;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NVG_BUILD;NVG_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4005;4456;4457;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NVG_BUILD;NVG_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">4005;4456;4457;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">NVG_BUILD;NVG_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">4005;4456;4457;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">NVG_BUILD;NVG_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\src\glad.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4055;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4055;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">4055;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CompileAsC</CompileAs>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">4055;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include\glad\glad.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include\KHR\khrplatform.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui_resources.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\glutil.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\glutil.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\common.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\common.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\widget.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\widget.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\theme.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\theme.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\layout.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\layout.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\screen.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\screen.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\label.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\label.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\window.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\window.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\popup.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\popup.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\checkbox.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\checkbox.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\button.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\button.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\popupbutton.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\popupbutton.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\combobox.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\combobox.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\progressbar.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\progressbar.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\slider.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\slider.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\messagedialog.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\messagedialog.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\textbox.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\textbox.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\imagepanel.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\imagepanel.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\imageview.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\imageview.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\vscrollpanel.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\vscrollpanel.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\colorwheel.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\colorwheel.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\colorpicker.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\colorpicker.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\graph.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\graph.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\stackedwidget.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\stackedwidget.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\tabheader.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\tabheader.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\tabwidget.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\tabwidget.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\glcanvas.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\glcanvas.cpp" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\formhelper.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\toolbutton.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\opengl.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\nanogui.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\serializer\core.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\serializer\opengl.h" />
+    <ClInclude Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include\nanogui\serializer\sparse.h" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\src\serializer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ZERO_CHECK.vcxproj">
+      <Project>{20663130-5964-342E-9F76-768EF1E05CA9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

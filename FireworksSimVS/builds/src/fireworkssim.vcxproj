@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DEB98714-0082-3594-BF1F-BE35862ECF1D}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>fireworkssim</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">fireworkssim.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">fireworkssim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">fireworkssim.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">fireworkssim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">fireworkssim.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">fireworkssim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">fireworkssim.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">fireworkssim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\Sabrina\Documents\OpenGL\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Sabrina\Documents\OpenGL\Library;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\CGL\src\Debug\CGL.lib;..\ext\nanogui\Debug\nanogui.lib;opengl32.lib;freetype28.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib;C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/Debug/fireworkssim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/Debug/fireworkssim.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\CGL\src\Release\CGL.lib;..\ext\nanogui\Release\nanogui.lib;opengl32.lib;freetype28.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib;C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/Release/fireworkssim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/Release/fireworkssim.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\CGL\src\MinSizeRel\CGL.lib;..\ext\nanogui\MinSizeRel\nanogui.lib;opengl32.lib;freetype28.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib;C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/MinSizeRel/fireworkssim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/MinSizeRel/fireworkssim.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>gnu++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;EIGEN_DONT_ALIGN;NANOGUI_SHARED;NVG_SHARED;GLAD_GLAPI_EXPORT;NANOGUI_GLAD;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\CGL\deps\freetype\include\freetype2;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glad\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\glfw\include;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\nanovg\src;C:\Users\Sabrina\Documents\CS184\testFinalProject\ext\nanogui\ext\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\CGL\src\RelWithDebInfo\CGL.lib;..\ext\nanogui\RelWithDebInfo\nanogui.lib;opengl32.lib;freetype28.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib;C:/Users/Sabrina/Documents/CS184/testFinalProject/CGL/deps/freetype/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/RelWithDebInfo/fireworkssim.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/RelWithDebInfo/fireworkssim.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Sabrina/Documents/CS184/testFinalProject -BC:/Users/Sabrina/Documents/CS184/testFinalProject/builds --check-stamp-file C:/Users/Sabrina/Documents/CS184/testFinalProject/builds/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Sabrina/Documents/CS184/testFinalProject/src/CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;C:\Users\Sabrina\Documents\CS184\testFinalProject\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Firework.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Main.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\ParticleEmitter.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Shader.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Utility.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\ShadersTest.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\stb_image.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\TexturesTest.cpp" />
+    <ClCompile Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\TransformationsTest.cpp" />
+    <None Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Shaders\Particle.frag" />
+    <None Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Shaders\Particle.vert" />
+    <Image Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\src\Textures\MyParticle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ZERO_CHECK.vcxproj">
+      <Project>{20663130-5964-342E-9F76-768EF1E05CA9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\CGL\src\CGL.vcxproj">
+      <Project>{2568EBD3-071D-3154-88DA-DBE5AF373855}</Project>
+      <Name>CGL</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Sabrina\Documents\CS184\testFinalProject\builds\ext\nanogui\nanogui.vcxproj">
+      <Project>{C61B9793-9F27-353D-95B8-0C6CFECDC848}</Project>
+      <Name>nanogui</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
