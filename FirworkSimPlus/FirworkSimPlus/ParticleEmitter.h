@@ -27,10 +27,11 @@ public:
 
   void SetEmitterVariables(
     const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime, const GLboolean isSpinningTrail,
-    const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
+    const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat minStartLifetime, const GLfloat maxStartLifetime, const GLfloat startSpeed,
     const glm::vec3 &gravity);
 
   void SetOrigin(const glm::vec3 newOrigin);
+  void SetColor(const glm::vec3 newColor);
 
 private:
   void SetupQuad();
@@ -54,7 +55,8 @@ private:
   // Starting settings for particles
   glm::vec3 startSize;
   glm::vec3 startColor;
-  GLfloat startLifetime;
+  GLfloat minStartLifetime;
+  GLfloat maxStartLifetime;
   GLfloat startSpeed;
   
   // Settings for lifetime of particles

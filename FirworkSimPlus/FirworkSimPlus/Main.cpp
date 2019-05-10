@@ -12,6 +12,12 @@
 
 using namespace std;
 
+glm::vec3 currentExplosionColor(1, 0, 0);
+
+Firework * CreateFirework();
+void RespawnFirework(Firework *firework, const bool stopped = false);
+
+
 namespace mySpace
 {
   void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -68,16 +74,8 @@ namespace mySpace
     {
       keyPressed_r = true;
       
-      glm::vec3 origin(0.0f);
-      glm::vec3 initialVelocity(0.0f);
       for (Firework * firework : f)
-      {
-        origin = randomVec3(glm::vec3(-25.0f, -50.0f, -180.0f), glm::vec3(25.0f, -45.0f, -170.0f));
-        initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 55.0f, 10.0f));
-
-        firework->Stop();
-        firework->Start(origin, initialVelocity);
-      }
+        RespawnFirework(firework);
     }
     else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_RELEASE)
     {
@@ -107,6 +105,16 @@ Firework * CreateFirework()
   Firework *f = new Firework(gravity, windForces, et, vsp, fsp, tt, vsp, fsp, st, vsp, fsp);
   f->ConfigureShaders(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT);
   return f;
+}
+
+void RespawnFirework(Firework *firework, const bool stopped)
+{
+  glm::vec3 origin = randomVec3(glm::vec3(-100.0f, -80.0f, -180.0f), glm::vec3(100.0f, -70.0f, -170.0f));
+  glm::vec3 initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 75.0f, 10.0f));
+
+  if (!stopped)
+    firework->Stop();
+  firework->Start(origin, initialVelocity, currentExplosionColor);
 }
 
 int main()
@@ -155,28 +163,37 @@ int main()
   
   
   
-  GLuint numFireworks = 1;
+  GLuint numFireworks = 10;
   vector<Firework *> fireworks;
   for (size_t i = 0; i < numFireworks; i++)
     fireworks.push_back(CreateFirework());
-  glm::vec3 origin(0.0f);
-  glm::vec3 initialVelocity(0.0f);
-  for (Firework *f : fireworks)
-  {
-    origin = randomVec3(glm::vec3(-25.0f, -50.0f, -180.0f), glm::vec3(25.0f, -45.0f, -170.0f));
-    initialVelocity = randomVec3(glm::vec3(-10.0f, 45.0f, -10.0f), glm::vec3(10.0f, 55.0f, 10.0f));
-    f->Start(origin, initialVelocity);
-  }
-
+  
 
   GLfloat deltaTime;
   GLfloat lastFrame = 0;
   GLfloat currentFrame = 0;
 
+  size_t curFireworkInd = 0;
+  GLfloat timeToNextFirework = 0;
+  GLfloat minTimeToNextFirework = 0.5f;
+  GLfloat maxTimeToNextFirework = 1.5f;
+
   // render loop
   // -----------
   while (!glfwWindowShouldClose(window))
   {
+    // Spawning a firework
+    if (timeToNextFirework <= 0)
+    {
+      RespawnFirework(fireworks[curFireworkInd++]);
+      if (curFireworkInd == numFireworks)
+        curFireworkInd = 0;
+      timeToNextFirework = randomFloat(minTimeToNextFirework, maxTimeToNextFirework);
+    }
+    else
+      timeToNextFirework -= deltaTime;
+
+
     // Updating time
     currentFrame = glfwGetTime();
     deltaTime = currentFrame - lastFrame;

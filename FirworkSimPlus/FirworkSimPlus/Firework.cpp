@@ -71,14 +71,15 @@ void Firework::CreateDefaultExplosion(const std::string vertexShaderPath, const 
 
   glm::vec3 pmStartSize(2.0f);
   glm::vec3 pmStartColor(1, 0, 0);
-  GLfloat pmStartLifetime = 5;
+  GLfloat pmMinStartLifetime = 0.9f;
+  GLfloat pmMaxStartLifetime = 1.2f;
   GLfloat pmStartSpeed = 25.0f;
 
   glm::vec3 pmGravity = externalForces;
 
   explosion->SetEmitterVariables(
     pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
-    pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
+    pmStartSize, pmStartColor, pmMinStartLifetime, pmMaxStartLifetime, pmStartSpeed,
     pmGravity);
 }
 
@@ -93,14 +94,15 @@ void Firework::CreateDefaultTrail(const std::string vertexShaderPath, const std:
 
   glm::vec3 pmStartSize = glm::vec3(1.5f);
   glm::vec3 pmStartColor = glm::vec3(1.0f, 0.992f, 0.647f);
-  GLfloat pmStartLifetime = 0.3f;
+  GLfloat pmMinStartLifetime = 0.3f;
+  GLfloat pmMaxStartLifetime = 0.8f;
   GLfloat pmStartSpeed = 0.0f;
 
   glm::vec3 pmGravity = externalForces;
 
   trail->SetEmitterVariables(
     pmOrigin, pmSphereRadius, pmParticleSpawnRate, pmEmitOverTime, pmIsSpinningTrail,
-    pmStartSize, pmStartColor, pmStartLifetime, pmStartSpeed,
+    pmStartSize, pmStartColor, pmMinStartLifetime, pmMaxStartLifetime, pmStartSpeed,
     pmGravity);
 }
 
@@ -119,7 +121,7 @@ void Firework::ConfigureShaders(const float width, const float height)
     smoke->ConfigureShader(width, height);
 }
 
-void Firework::Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity)
+void Firework::Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity, const glm::vec3 currentExplosionColor)
 {
   simulationRunning = true;
   explosionStarted = false;
@@ -128,6 +130,10 @@ void Firework::Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity)
   velocity = initialVelocity;
   if (trail != nullptr)
     trail->Start();
+  if (explosion != nullptr)
+  {
+    explosion->SetColor(currentExplosionColor);
+  }
 }
 
 void Firework::Update(const GLfloat deltaTime)
