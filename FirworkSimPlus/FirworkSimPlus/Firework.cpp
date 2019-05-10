@@ -121,7 +121,9 @@ void Firework::ConfigureShaders(const float width, const float height)
     smoke->ConfigureShader(width, height);
 }
 
-void Firework::Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity, const glm::vec3 currentExplosionColor)
+void Firework::Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity,
+  const glm::vec3 currentExplosionColor, bool changeExplosionColor,
+  const GLfloat currentExplosionForce, bool changeExplosionForce)
 {
   simulationRunning = true;
   explosionStarted = false;
@@ -132,7 +134,10 @@ void Firework::Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity, 
     trail->Start();
   if (explosion != nullptr)
   {
-    explosion->SetColor(currentExplosionColor);
+    if (changeExplosionColor)
+      explosion->SetColor(currentExplosionColor);
+    if (changeExplosionForce)
+      explosion->SetStartSpeed(currentExplosionForce);
   }
 }
 

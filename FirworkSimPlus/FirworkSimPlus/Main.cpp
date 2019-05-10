@@ -13,6 +13,10 @@
 using namespace std;
 
 glm::vec3 currentExplosionColor(1, 0, 0);
+bool changeExplosionColor = false;
+GLfloat currentExplosionForce = 25;
+bool changeExplosionForce = false;
+
 
 Firework * CreateFirework();
 void RespawnFirework(Firework *firework, const bool stopped = false);
@@ -114,7 +118,15 @@ void RespawnFirework(Firework *firework, const bool stopped)
 
   if (!stopped)
     firework->Stop();
-  firework->Start(origin, initialVelocity, currentExplosionColor);
+
+  firework->Start(origin, initialVelocity, 
+    currentExplosionColor, changeExplosionColor,
+    currentExplosionForce, changeExplosionForce);
+
+  if (changeExplosionColor)
+    changeExplosionColor = false;
+  if (changeExplosionForce)
+    changeExplosionForce = false;
 }
 
 int main()
@@ -132,7 +144,7 @@ int main()
 
     // glfw window creation
     // --------------------
-  GLFWwindow* window = glfwCreateWindow(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+  GLFWwindow* window = glfwCreateWindow(mySpace::SCR_WIDTH, mySpace::SCR_HEIGHT, "Firwork Simulator", NULL, NULL);
   if (window == NULL)
   {
     std::cout << "Failed to create GLFW window" << std::endl;

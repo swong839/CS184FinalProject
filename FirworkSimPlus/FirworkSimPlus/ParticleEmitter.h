@@ -32,6 +32,7 @@ public:
 
   void SetOrigin(const glm::vec3 newOrigin);
   void SetColor(const glm::vec3 newColor);
+  void SetStartSpeed(const GLfloat newSpeed);
 
 private:
   void SetupQuad();

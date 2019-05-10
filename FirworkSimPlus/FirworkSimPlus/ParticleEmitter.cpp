@@ -307,3 +307,8 @@ void ParticleEmitter::SetColor(const glm::vec3 newColor)
 {
   this->startColor = newColor;
 }
+
+void ParticleEmitter::SetStartSpeed(const GLfloat newSpeed)
+{
+  this->startSpeed = newSpeed;
+}

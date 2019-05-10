@@ -28,7 +28,9 @@ public:
   ~Firework();
   void ConfigureShaders(const float width, const float height);
 
-  void Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity, const glm::vec3 currentExplosionColor);
+  void Start(const glm::vec3 &origin, const glm::vec3 &initialVelocity,
+    const glm::vec3 currentExplosionColor = glm::vec3(0), bool changeExplosionColor = false,
+    const GLfloat currentExplosionForce = 0, bool changeExplosionForce = false);
   void Update(const GLfloat deltaTime);
   void Draw();
   void Stop();
