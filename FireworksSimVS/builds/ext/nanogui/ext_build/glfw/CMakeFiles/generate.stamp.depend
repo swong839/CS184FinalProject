@@ -1,0 +1,15 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.13/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/ext/glfw/CMake/modules/FindVulkan.cmake
+C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/ext/glfw/CMakeLists.txt
+C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/ext/glfw/src/glfw3.pc.in
+C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/ext/glfw/src/glfw3Config.cmake.in
+C:/Users/Sabrina/Documents/CS184/testFinalProject/ext/nanogui/ext/glfw/src/glfw_config.h.in
