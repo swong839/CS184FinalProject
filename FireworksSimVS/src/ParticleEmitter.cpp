@@ -76,7 +76,7 @@ void ParticleEmitter::SetupTexture()
 	// load and generate texture
 	int width, height, nrChannels;
 	stbi_set_flip_vertically_on_load(true);
-	unsigned char *data = stbi_load("Textures/MyParticle.png", &width, &height, &nrChannels, 0);
+	unsigned char *data = stbi_load("../../Textures/MyParticle.png", &width, &height, &nrChannels, 0);
 	if (data)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -280,7 +280,7 @@ void ParticleEmitter::RespawnParticle(Particle &particle, const GLfloat angle)
 
 void ParticleEmitter::SetEmitterVariables(
 	const glm::vec3 &origin, const GLfloat sphereRadius, const GLfloat particleSpawnRate, const GLboolean emitOverTime, const GLboolean isSpinningTrail,
-	const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat startLifetime, const GLfloat startSpeed,
+	const glm::vec3 &startSize, const glm::vec3 &startColor, const GLfloat minStartLifetime, const GLfloat maxStartLifetime, const GLfloat startSpeed,
 	const glm::vec3 &gravity)
 {
 	this->origin = origin;
@@ -291,7 +291,8 @@ void ParticleEmitter::SetEmitterVariables(
 
 	this->startSize = startSize;
 	this->startColor = startColor;
-	this->startLifetime = startLifetime;
+	this->minStartLifetime = minStartLifetime;
+	this->maxStartLifetime = maxStartLifetime;
 	this->startSpeed = startSpeed;
 
 	this->gravity = gravity;
@@ -300,4 +301,14 @@ void ParticleEmitter::SetEmitterVariables(
 void ParticleEmitter::SetOrigin(const glm::vec3 newOrigin)
 {
 	this->origin = newOrigin;
+}
+
+void ParticleEmitter::SetColor(const glm::vec3 newColor)
+{
+	this->startColor = newColor;
+}
+
+void ParticleEmitter::SetStartSpeed(const GLfloat newSpeed)
+{
+	this->startSpeed = newSpeed;
 }
