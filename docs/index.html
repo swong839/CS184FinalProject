@@ -34,12 +34,15 @@
 	<p>With the firework class done, we just started adding different settings that we could mess with and modify. The last two things we had a fair amount of trouble implementing was a particle that faked the emittion of light and the UI. To fake the emittion of light, we created a completely new texture that had a very opaque center and a mostly transparent outer rim. At the same time, altered the particle so it was represented by four triangles all coming from the center instead of two separated by the diagonal. The idea was that the center point would be assigned a white while the other four points will be assigned the firework color and there would be a gradient from the center to the outer rim. This sort of worked but removing it and just setting everything to a red and then a white produced much cleaner results so we scapped the gradient idea. For the UI, there was a lot of debugging because of how the project was set up in the very beginning. Rather than using CMAKE, we just created a Visual Studio project so it took a lot of work to correctly set up the project and making sure everything was still running as expected.</p>
 	<p>The last concern that we had throughout this project was just its speed. There were times when we were having significant lag spikes in the program from using too many particles. After a few minor optimizations such as increasing the pool size for each emitter and removing unnecessary things when refactoring, we were able to mostly remove the lag.</p>
 	<h3 align="middle">Results</h3>
+	<p>Link to our final video presentation can be found <a href="https://www.youtube.com/watch?v=UZ2UMZGdwlA&feature=youtu.be&fbclid=IwAR1LWFYHTcCgriDIlKt-IlGxyAbk5bslKuFs4WrYppSerkECWFbYL0JAxG4">here</a>.</p>
+	<p>Link to the slides we used in our final video presentation can be found <a href="https://docs.google.com/presentation/d/1XlJwfUV7sH7wOuINJde_L-om-QhTau-m38-gUyzaUGk/edit?usp=sharing">here</a>.</p>
+	<p>Below is a video of our final particle systems in action</p>
 	<div align="center">
-        <p>Below is a video of our final particle systems in action</p>
-        <video width="320" height="240" controls>
+        <video width="1280" height="960" controls>
             <source src="finalVideo.mp4" type="video/mp4">
         </video>
-    </div>	<h3 align="middle">References</h3>
+    </div>
+	<h3 align="middle">References</h3>
 	<ul>
 		<li><b>OpenGL reference material</b></li>
             <li style="margin-left:2em"><a href="https://learnopengl.com/Introduction">OpenGL Introduction</a></lii>
